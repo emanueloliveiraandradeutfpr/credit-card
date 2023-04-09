@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoorhing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 62.5%;
+    --background-color: #1f2937;
+    --font-color: #e5e7eb;
+    --border-color: #374151;
+    --input-bg-color: #111827;
+    --imput-font-color: #F3F4F6;
+    --button-color: #9333EA;
+    --button-hover: #A855F7;
+    --button-font-color: #F9FAFB;
+    --warning-color: #FB7185;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+body,
+input,
+button {
+    font-size: 1.6rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+form {
+    padding: 2.4rem;
+    max-width: 40rem;
+    margin: auto;
+}
+
+
+#credit-card {
+    width: 32.8rem;
+    height: 21.2rem;
+    margin: auto;
+
+    /* deixa o card centrelizado e ajuda na animação de flipar o card*/
+    perspective: 60rem;
+}
+
+#credit-card>div {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#credit-card .front {
+    background: url(assets/card-front.png) no-repeat;
+    transform: rotateY(0);
+}
+
+#credit-card .back {
+    background: url(assets/card-back.png) no-repeat;
+    top: -.5rem;
+    transform: rotateY(-180deg);
+}
+
+#credit-card:hover .front,
+#credit-card:active .front {
+    transform: rotateY(180deg);
+}
+
+#credit-card:hover .back,
+#credit-card:active .back {
+    transform: rotateY(0);
+}
+
+.card-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 17.6rem;
+    margin: 1.6rem 2.4rem 0;
+    position: absolute;
+    left: 2.4rem;
+    top: 1.6rem;
+}
+
+.card-number {
+    color: var(--font-color);
+    letter-spacing: .5rem;
+    line-height: 2.4rem;
+    margin: 0 4.8rem;
+    position: absolute;
+    top: 9.2rem;
+}
+
+.card-bottom {
+    width: 232px;
+    margin-left: 4.8rem;
+    height: 20px;
+    color: var(--font-color);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: absolute;
+    top: 140px;
+}
+
+.card-name {
+    width: 159px;
+    height: 16px;
+    font-size: 14px;
+    line-height: 16px;
+    opacity: .5;
+}
+
+.card-date {
+    letter-spacing: .1883rem;
+}
+
+.card-cvv {
+    position: absolute;
+    right: 9.1rem;
+    top: 12rem;
+    letter-spacing: .4rem;
+    color: black;
+}
+
+.flex {
+    display: flex;
+}
+
+.inputs {
+    margin-top: 4.8rem;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+label {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--font-color);
+    gap: .4rem;
+    align-items: center;
+}
+
+input {
+    margin-top: .4rem;
+    width: 100%;
+    padding: 1.2rem;
+    border: .1rem solid var(--border-color);
+    background: var(--input-bg-color);
+    border-radius: .4rem;
+    color: var(--imput-font-color);
+}
+
+input:focus {
+    outline: .15rem solid var(--button-color);
+}
+
+input:invalid:focus {
+    border: 0.15rem solid var(--warning-color);
+}
+
+input+.warning {
+    display: none;
+}
+
+input:invalid:focus+.warning {
+    font-size: 1.4rem;
+    margin-top: .8rem;
+    color: var(--warning-color);
+
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.col-2 {
+    gap: 2.4rem;
+    align-items: center;
+}
+
+.col-2 .input-wrapper:nth-child(1) {
+    flex-basis: 80%;
+}
+
+.help img {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.info-security {
+    margin-top: 4.8rem;
+    justify-content: center;
+    gap: .8rem;
+    font-size: 1.4rem;
+    color: var(--font-color);
+}
+
+button {
+    margin-top: 10rem;
+    border: 0;
+    padding: 1.6rem;
+    width: 100%;
+    background: var(--button-color);
+    box-shadow: .0rem .4rem 1.6rem rgba(0, 0, 0, 0.1);
+    border-radius: .4rem;
+
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    color: var(--button-font-color);
+
+    cursor: pointer;
+    transition: background .2s;
+}
+
+button:hover {
+    background: var(--button-hover);
+}
