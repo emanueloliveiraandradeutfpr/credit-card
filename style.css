@@ -69,14 +69,12 @@ form {
     transform: rotateY(-180deg);
 }
 
-#credit-card:hover .front,
-#credit-card:active .front {
-    transform: rotateY(180deg);
+.toggleFlipe {
+    transform: rotateY(180deg) !important;
 }
 
-#credit-card:hover .back,
-#credit-card:active .back {
-    transform: rotateY(0);
+.toggleFlipe+.toggleFlipe {
+    transform: rotateY(0) !important;
 }
 
 .card-top {
@@ -91,7 +89,7 @@ form {
     top: 1.6rem;
 }
 
-.card-number {
+#card-number {
     color: var(--font-color);
     letter-spacing: .5rem;
     line-height: 2.4rem;
@@ -112,19 +110,19 @@ form {
     top: 140px;
 }
 
-.card-name {
+#card-name {
     width: 159px;
     height: 16px;
     font-size: 14px;
     line-height: 16px;
-    opacity: .5;
+    opacity: .4;
 }
 
-.card-date {
+#card-date {
     letter-spacing: .1883rem;
 }
 
-.card-cvv {
+#card-cvv {
     position: absolute;
     right: 9.1rem;
     top: 12rem;

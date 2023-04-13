@@ -17,32 +17,37 @@
 <body>
     <form>
         <section id="credit-card">
-            <!-- <div class="card-type">
-                    <img src="" alt="Ícone do cartão da marca Visa">
-                </div> -->
             <div class="front ">
                 <div class="card-top">
                     <img src="assets/elo.svg" alt="Ícone de cartão da marca Elo">
                     <img src="assets/contactlessPayment.svg" alt="Ícone de pagamento sem aproximação">
                 </div>
-                <div class="card-number">0000 0000 0000 0000</div>
+                <div id="card-number">0000 0000 0000 0000</div>
                 <div class="card-bottom">
-                    <div class="card-name">Seu nome aqui</div>
-                    <div class="card-date">00 / 00</div>
+                    <div id="card-name">Seu nome aqui</div>
+                    <div id="card-date">00 / 00</div>
                 </div>
             </div>
             <div class="back">
-                <div class="card-cvv">000</div>
+                <div id="card-cvv">000</div>
             </div>
         </section>
         <section class="inputs flex">
             <div class="input-wrapper">
                 <label for="cc-number">Número do cartão</label>
-                <input id="cc-number" type="text" placeholder="**** **** **** ****">
+                <input
+                    id="cc-number"
+                    type="text"
+                    placeholder="**** **** **** ****">
             </div>
             <div class="input-wrapper">
                 <label for="cc-holder">Nome do titular</label>
-                <input id="cc-holder" type="text" placeholder="Nome como está no cartão" required>
+                <input
+                    id="cc-holder"
+                    type="text"
+                    placeholder="Nome como está no cartão"
+                    maxlength="22"
+                    required>
 
                 <div class="warning">
                     <img src="assets/warning.svg" alt="Ícone de alerta">
@@ -53,14 +58,22 @@
             <div class="col-2 flex">
                 <div class="input-wrapper">
                     <label for="cc-validity">Validade</label>
-                    <input id="cc-validity" type="text" placeholder="mm/aa">
+                    <input
+                        id="cc-validity"
+                        type="text"
+                        placeholder="mm/aa">
                 </div>
                 <div class="input-wrapper">
                     <label class="flex help" for="cc-cvv">CVV
                         <img src="assets/question.svg" alt="Ícone de ajuda"
                             title="Esse número está, geralmente, nas costas do seu cartão">
                     </label>
-                    <input id="cc-cvv" type="text" placeholder="***">
+                    <input
+                        onfocus="flip()"
+                        onblur="flip()"
+                        id="cc-cvv"
+                        type="text"
+                        placeholder="***">
                 </div>
             </div>
         </section>
@@ -73,7 +86,8 @@
         <button>Adicionar Cartão</button>
     </form>
     <script src="https://unpkg.com/imask"></script>
-    <script src="main.js"></script>
+    <script src="mask.js"></script>
+    <script src="card.js"></script>
 </body>
 
 </html>
