@@ -222,4 +222,10 @@ button {
 
 button:hover {
     background: var(--button-hover);
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 50%;
+    cursor: not-allowed;
 }

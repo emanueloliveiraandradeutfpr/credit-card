@@ -1,8 +1,10 @@
+let brand = document.querySelector(".card-top");
 let formNumber = document.querySelector("#cc-number");
 let formHolder = document.querySelector("#cc-holder");
 let formValidity = document.querySelector("#cc-validity");
 let formCvv = document.querySelector("#cc-cvv");
-let brand = document.querySelector(".card-top");
+let input = document.querySelectorAll("input");
+let form = document.querySelector("form");
 
 formNumber.addEventListener("keyup", (e) => {
     let cardNumber = document.querySelector("#card-number");
@@ -87,9 +89,6 @@ formCvv.addEventListener("keyup", (e) => {
         cardCvv.textContent = "000";
     }
 });
-
-let cvvFocus = document.querySelector("#cc-cvv");
-
 function flip() {
     let cardFront = document.querySelector(".front");
     let cardBack = document.querySelector(".back");
@@ -97,3 +96,20 @@ function flip() {
     cardFront.classList.toggle("toggleFlipe");
     cardBack.classList.toggle("toggleFlipe");
 }
+
+form.addEventListener("change", () => {
+    let but = document.querySelector("button");
+    {
+        var cont = 0;
+        input.forEach((event) => {
+            if (event.value === "" || null || NaN) {
+                cont++;
+            }
+        });
+        if (cont === 0) {
+            but.toggleAttribute("disabled");
+        } else {
+            but.disabled = true;
+        }
+    }
+});

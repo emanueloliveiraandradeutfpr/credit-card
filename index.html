@@ -38,7 +38,8 @@
                 <input
                     id="cc-number"
                     type="text"
-                    placeholder="**** **** **** ****">
+                    placeholder="**** **** **** ****"
+                    required>
             </div>
             <div class="input-wrapper">
                 <label for="cc-holder">Nome do titular</label>
@@ -61,7 +62,8 @@
                     <input
                         id="cc-validity"
                         type="text"
-                        placeholder="mm/aa">
+                        placeholder="mm/aa"
+                        required>
                 </div>
                 <div class="input-wrapper">
                     <label class="flex help" for="cc-cvv">CVV
@@ -73,7 +75,8 @@
                         onblur="flip()"
                         id="cc-cvv"
                         type="text"
-                        placeholder="***">
+                        placeholder="***"
+                        required>
                 </div>
             </div>
         </section>
@@ -83,7 +86,7 @@
                 Seus dados estão seguros
             </div>
         </section>
-        <button>Adicionar Cartão</button>
+        <button type="submit" disabled>Adicionar Cartão</button>
     </form>
     <script src="https://unpkg.com/imask"></script>
     <script src="mask.js"></script>
