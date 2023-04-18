@@ -124,4 +124,5 @@ button.addEventListener("click", function () {
         button.classList.remove("loading");
         button.firstChild.replaceWith(aux);
     }, 3000);
+    return false;
 });
