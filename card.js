@@ -5,6 +5,7 @@ let formValidity = document.querySelector("#cc-validity");
 let formCvv = document.querySelector("#cc-cvv");
 let input = document.querySelectorAll("input");
 let form = document.querySelector("form");
+let button = document.querySelector("button");
 
 formNumber.addEventListener("keyup", (e) => {
     let cardNumber = document.querySelector("#card-number");
@@ -97,19 +98,31 @@ function flip() {
     cardBack.classList.toggle("toggleFlipe");
 }
 
-form.addEventListener("change", () => {
-    let but = document.querySelector("button");
-    {
-        var cont = 0;
-        input.forEach((event) => {
-            if (event.value === "" || null || NaN) {
-                cont++;
-            }
-        });
-        if (cont === 0) {
-            but.toggleAttribute("disabled");
-        } else {
-            but.disabled = true;
-        }
+form.addEventListener("change", function validate() {
+    if (
+        formNumber.value.length === 19 &&
+        formHolder.value.length >= 7 &&
+        formValidity.value.length === 5 &&
+        formCvv.value.length >= 3
+    ) {
+        button.disabled = false;
+    } else {
+        button.disabled = true;
     }
+});
+
+button.addEventListener("click", function () {
+    const load = new Image(24, 24);
+    load.src = "assets/spinnerGap.svg";
+    load.alt = "Símbolo de carregamento";
+    let aux = button.firstChild;
+    button.firstChild.replaceWith(load);
+
+    button.firstChild.classList.add("loading");
+
+    setTimeout(() => {
+        button.classList.remove("loading");
+        button.firstChild.replaceWith(aux);
+    }, 3000);
+    return false;
 });
